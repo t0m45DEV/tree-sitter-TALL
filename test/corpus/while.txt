@@ -1,0 +1,76 @@
+====================
+while
+====================
+
+
+func main(null) -> int
+{
+    const limit : int = 10;
+    var n : int = 0;
+
+    {
+        var i : int = 0;
+
+        while (i < limit)
+        {
+            if (i != 5)
+            {
+                n += i;
+            }
+            i++;
+        }
+        n = n + 5;
+    }
+    return n;
+}
+
+
+---
+
+(source_file
+  (func_decl
+    name: (identifier)
+    params: (params)
+    return_type: (type)
+    (block
+      (decl_stmt
+        (decl
+          name: (identifier)
+          type: (type)
+          value: (number)))
+      (decl_stmt
+        (decl
+          name: (identifier)
+          type: (type)
+          value: (number)))
+      (block
+        (decl_stmt
+          (decl
+            name: (identifier)
+            type: (type)
+            value: (number)))
+        (while_stmt
+          condition: (binary_expr
+            (identifier)
+            (identifier))
+          (block
+            (if_stmt
+              condition: (binary_expr
+                (identifier)
+                (number))
+              then: (block
+                (assign_stmt
+                  (assign
+                    name: (identifier)
+                    value: (identifier)))))
+            (assign_stmt
+              (assign
+                name: (identifier)))))
+        (assign_stmt
+          (assign
+            name: (identifier)
+            value: (binary_expr
+              (identifier)
+              (number)))))
+      (return_stmt
+        (identifier)))))

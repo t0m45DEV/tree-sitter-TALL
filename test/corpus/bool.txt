@@ -1,0 +1,28 @@
+====================
+bool
+====================
+
+
+func main(null) -> int
+{
+    var b : bool = !true;
+    return 0;
+}
+
+
+---
+
+(source_file
+  (func_decl
+    name: (identifier)
+    params: (params)
+    return_type: (type)
+    (block
+      (decl_stmt
+        (decl
+          name: (identifier)
+          type: (type)
+          value: (unary_expr
+            (boolean))))
+      (return_stmt
+        (number)))))

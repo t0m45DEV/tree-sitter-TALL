@@ -1,0 +1,83 @@
+====================
+functions
+====================
+
+
+func my_function(name : string) -> string
+{
+    return "Hello, " + name + "!";
+}
+
+func main(null) -> int
+{
+    var start : float = clock();
+    var n : int = 0;
+
+    for (var i : int = 0; i < 10; i++)
+    {
+        n = n + i;
+    }
+    clock() - start;
+    return my_function("Tom");
+}
+
+
+---
+
+(source_file
+  (func_decl
+    name: (identifier)
+    params: (params
+      (param
+        name: (identifier)
+        type: (type)))
+    return_type: (type)
+    (block
+      (return_stmt
+        (binary_expr
+          (binary_expr
+            (string)
+            (identifier))
+          (string)))))
+  (func_decl
+    name: (identifier)
+    params: (params)
+    return_type: (type)
+    (block
+      (decl_stmt
+        (decl
+          name: (identifier)
+          type: (type)
+          value: (call_expr
+            function: (identifier))))
+      (decl_stmt
+        (decl
+          name: (identifier)
+          type: (type)
+          value: (number)))
+      (for_stmt
+        init: (decl
+          name: (identifier)
+          type: (type)
+          value: (number))
+        condition: (binary_expr
+          (identifier)
+          (number))
+        update: (assign
+          name: (identifier))
+        (block
+          (assign_stmt
+            (assign
+              name: (identifier)
+              value: (binary_expr
+                (identifier)
+                (identifier))))))
+      (expr_stmt
+        (binary_expr
+          (call_expr
+            function: (identifier))
+          (identifier)))
+      (return_stmt
+        (call_expr
+          function: (identifier)
+          argument: (string))))))

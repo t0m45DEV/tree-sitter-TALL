@@ -1,0 +1,89 @@
+====================
+recursion
+====================
+
+
+func fibonacci(n : int) -> int
+{
+    if (n < 2)
+    {
+        return n;
+    }
+    else
+    {
+        return fibonacci(n - 2) + fibonacci(n - 1);
+    }
+}
+
+func main(null) -> int
+{
+    var start : float = clock();
+    var n : int = fibonacci(35);
+    print(clock() - start);
+    print(n);
+    return 0;
+}
+
+
+---
+
+(source_file
+  (func_decl
+    name: (identifier)
+    params: (params
+      (param
+        name: (identifier)
+        type: (type)))
+    return_type: (type)
+    (block
+      (if_stmt
+        condition: (binary_expr
+          (identifier)
+          (number))
+        then: (block
+          (return_stmt
+            (identifier)))
+        else: (block
+          (return_stmt
+            (binary_expr
+              (call_expr
+                function: (identifier)
+                argument: (binary_expr
+                  (identifier)
+                  (number)))
+              (call_expr
+                function: (identifier)
+                argument: (binary_expr
+                  (identifier)
+                  (number)))))))))
+  (func_decl
+    name: (identifier)
+    params: (params)
+    return_type: (type)
+    (block
+      (decl_stmt
+        (decl
+          name: (identifier)
+          type: (type)
+          value: (call_expr
+            function: (identifier))))
+      (decl_stmt
+        (decl
+          name: (identifier)
+          type: (type)
+          value: (call_expr
+            function: (identifier)
+            argument: (number))))
+      (expr_stmt
+        (call_expr
+          function: (identifier)
+          argument: (binary_expr
+            (call_expr
+              function: (identifier))
+            (identifier))))
+      (expr_stmt
+        (call_expr
+          function: (identifier)
+          argument: (identifier)))
+      (return_stmt
+        (number)))))

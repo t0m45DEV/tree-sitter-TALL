@@ -1,0 +1,78 @@
+====================
+if
+====================
+
+
+func main(null) -> int
+{
+    var a : int = 2;
+    var b : int = 3;
+
+    var message : string = "before if";
+
+    if (true and a == b)
+    {
+        message = "true branch!";
+    }
+    else if (a > b)
+    {
+        message = "else if branch!";
+    }
+    else
+    {
+        message = "false branch!";
+    }
+    return message;
+}
+
+
+---
+
+(source_file
+  (func_decl
+    name: (identifier)
+    params: (params)
+    return_type: (type)
+    (block
+      (decl_stmt
+        (decl
+          name: (identifier)
+          type: (type)
+          value: (number)))
+      (decl_stmt
+        (decl
+          name: (identifier)
+          type: (type)
+          value: (number)))
+      (decl_stmt
+        (decl
+          name: (identifier)
+          type: (type)
+          value: (string)))
+      (if_stmt
+        condition: (binary_expr
+          (boolean)
+          (binary_expr
+            (identifier)
+            (identifier)))
+        then: (block
+          (assign_stmt
+            (assign
+              name: (identifier)
+              value: (string))))
+        else: (if_stmt
+          condition: (binary_expr
+            (identifier)
+            (identifier))
+          then: (block
+            (assign_stmt
+              (assign
+                name: (identifier)
+                value: (string))))
+          else: (block
+            (assign_stmt
+              (assign
+                name: (identifier)
+                value: (string))))))
+      (return_stmt
+        (identifier)))))

@@ -1,0 +1,36 @@
+====================
+floats
+====================
+
+
+func main(null) -> int
+{
+    var b : float = (-1.0 + 2.0) * 3.2 - -4.1;
+    return 0;
+}
+
+
+---
+
+(source_file
+  (func_decl
+    name: (identifier)
+    params: (params)
+    return_type: (type)
+    (block
+      (decl_stmt
+        (decl
+          name: (identifier)
+          type: (type)
+          value: (binary_expr
+            (binary_expr
+              (paren_expr
+                (binary_expr
+                  (unary_expr
+                    (number))
+                  (number)))
+              (number))
+            (unary_expr
+              (number)))))
+      (return_stmt
+        (number)))))

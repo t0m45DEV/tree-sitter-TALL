@@ -1,0 +1,41 @@
+====================
+strings
+====================
+
+
+func main(null) -> int
+{
+    var concat : string = "he" + "llo, " + "wo" + "rld";
+    var target : string = "hello, world";
+    return concat == target;
+}
+
+
+---
+
+(source_file
+  (func_decl
+    name: (identifier)
+    params: (params)
+    return_type: (type)
+    (block
+      (decl_stmt
+        (decl
+          name: (identifier)
+          type: (type)
+          value: (binary_expr
+            (binary_expr
+              (binary_expr
+                (string)
+                (string))
+              (string))
+            (string))))
+      (decl_stmt
+        (decl
+          name: (identifier)
+          type: (type)
+          value: (string)))
+      (return_stmt
+        (binary_expr
+          (identifier)
+          (identifier))))))
