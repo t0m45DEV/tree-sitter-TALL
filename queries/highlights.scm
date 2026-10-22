@@ -36,3 +36,17 @@
 
 ; generic identifier fallback (keep last, lowest priority)
 (identifier) @variable
+
+; method calls
+(method_call
+  method: (identifier) @function.method.call)
+
+; std library functions — override generic call color for known builtins
+(call_expr
+  function: (identifier) @function.builtin.call
+  (#any-of? @function.builtin.call "clock" "print"))
+
+; std library methods — override generic method color for known builtins
+(method_call
+  method: (identifier) @function.builtin.method
+  (#any-of? @function.builtin.method "to_str"))
