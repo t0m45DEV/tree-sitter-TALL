@@ -1,0 +1,46 @@
+====================
+methods
+====================
+
+func main(null) -> int
+{
+    var start : float = clock();
+    print("Time: " + (clock() - start).to_str());
+    print(start.to_str());
+    return 0;
+}
+
+---
+
+(source_file
+  (func_decl
+    name: (identifier)
+    params: (params)
+    return_type: (type)
+    (block
+      (decl_stmt
+        (decl
+          name: (identifier)
+          type: (type)
+          value: (call_expr
+            function: (identifier))))
+      (expr_stmt
+        (call_expr
+          function: (identifier)
+          argument: (binary_expr
+            (string)
+            (method_call
+              object: (paren_expr
+                (binary_expr
+                  (call_expr
+                    function: (identifier))
+                  (identifier)))
+              method: (identifier)))))
+      (expr_stmt
+        (call_expr
+          function: (identifier)
+          argument: (method_call
+            object: (identifier)
+            method: (identifier))))
+      (return_stmt
+        (number)))))
