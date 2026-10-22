@@ -79,6 +79,7 @@ module.exports = grammar({
 
     // ---------- expressions ----------
     _expr: $ => choice(
+      $.method_call,
       $.call_expr,
       $.binary_expr,
       $.unary_expr,
@@ -88,6 +89,15 @@ module.exports = grammar({
       $.boolean,
       $.paren_expr,
     ),
+
+    method_call: $ => prec.left(7, seq(
+      field('object', $._expr),
+      '.',
+      field('method', $.identifier),
+      '(',
+      optional(sep1(field('argument', $._expr), ',')),
+      ')'
+    )),
 
     paren_expr: $ => seq('(', $._expr, ')'),
 
