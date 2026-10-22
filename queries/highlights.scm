@@ -13,9 +13,6 @@
 (func_decl name: (identifier) @function)
 (param name: (identifier) @variable.parameter)
 
-; calls
-(call_expr function: (identifier) @function.call)
-
 ; declarations (covers decl_stmt AND decl inlined inside for_stmt init)
 (decl
   kind: _ @keyword
@@ -34,19 +31,18 @@
 ["(" ")" "{" "}"] @punctuation.bracket
 [";" ":" ","] @punctuation.delimiter
 
-; generic identifier fallback (keep last, lowest priority)
+; generic identifier fallback (keep last, lowest priority — but calls/methods are listed AFTER this so they win)
 (identifier) @variable
 
-; method calls
-(method_call
-  method: (identifier) @function.method.call)
+; calls — listed after the fallback so these override it for call/method nodes specifically
+(call_expr function: (identifier) @function.call)
+(method_call method: (identifier) @function.method.call)
 
-; std library functions — override generic call color for known builtins
+; std library overrides — must come last of all
 (call_expr
   function: (identifier) @function.builtin.call
   (#any-of? @function.builtin.call "clock" "print"))
 
-; std library methods — override generic method color for known builtins
 (method_call
   method: (identifier) @function.builtin.method
   (#any-of? @function.builtin.method "to_str"))
